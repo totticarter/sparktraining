@@ -9,7 +9,7 @@ object MultipleNumMain {
 
   def main(args: Array[String]): Unit = {
 
-    val conf = new SparkConf().setMaster("yarn").setAppName("wordcount")
+    val conf = new SparkConf().setMaster("local").setAppName("wordcount")
     val sc = new SparkContext(conf)
     val sourcdRdd = sc.textFile("file:///Users/waixingren/bigdata-java/spark/sparkproj/pom.xml");
     val multipleNum = new MultipleNum(true)

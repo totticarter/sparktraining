@@ -8,7 +8,7 @@ import org.apache.spark.{SparkConf, SparkContext}
 object ReduceByKey {
 
   def main(args: Array[String]): Unit = {
-    val conf = new SparkConf().setMaster("yarn").setAppName("wordcount")
+    val conf = new SparkConf().setMaster("local").setAppName("wordcount")
     val sc = new SparkContext(conf)
 
     val x = sc.parallelize(Array(("a", 1), ("b", 1), ("a", 2),("a", 1), ("b", 1), ("b", 5),("b", 3), ("b", 1)), 3)

@@ -14,7 +14,7 @@ import scala.io.Source
 object NationTable {
 
   def main(args: Array[String]): Unit = {
-    val conf = new SparkConf().setMaster("yarn").setAppName("nation")
+    val conf = new SparkConf().setMaster("local").setAppName("nation")
     val sc = new SparkContext(conf)
 
 
@@ -28,7 +28,7 @@ object NationTable {
 
 
     val nationRddLineSplited = spark.sparkContext.textFile("file:///Users/waixingren/bigdata-java/spark/sparkproj/data/nation.tbl").map(line => line.split("\\|"))
-    val rowRDD = nationRddLineSplited.map(attributes => Row(attributes(0).trim, attributes(1).trim, attributes(2).trim, attributes(3).trim))
+    val rowRDD = nationRddLineSplited.map(attributes => Row(attributes(0).trim.toLong, attributes(1).trim, attributes(2).trim.toLong, attributes(3).trim))
     val nationDF = spark.createDataFrame(rowRDD, schema)
     nationDF.select("nationkey").show
     spark.stop()
@@ -39,7 +39,8 @@ object NationTable {
 
     val typeMap = getTypeMap()
     val array:Array[String] = fieldInfo.split(" ")
-    new StructField(array(0), typeMap(array(1)), nullable = true)
+    val sparsqlType:DataType = typeMap(array(1))
+    new StructField(array(0), sparsqlType, nullable = true)
   }
 
 
