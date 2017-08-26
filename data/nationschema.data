@@ -1,0 +1,4 @@
+nationkey long
+name string
+regionkey long
+comment string
