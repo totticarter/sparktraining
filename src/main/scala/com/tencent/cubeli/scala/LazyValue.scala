@@ -10,6 +10,7 @@ object LazyValue {
 
     lazy val lines = fromFile("/Users/waixingren/bigdata-java/spark/sparkproj/src/main/scala/com/tencent/cubeli/scala/Func.scala").mkString
     lines.foreach(print)
+
   }
 
 }
