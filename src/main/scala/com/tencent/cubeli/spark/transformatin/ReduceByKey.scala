@@ -24,4 +24,9 @@ object ReduceByKey {
       thisandnext._2
     }
   }
+
+  def max2(a:Int, b:Int):Int = {
+
+      a
+  }
 }
