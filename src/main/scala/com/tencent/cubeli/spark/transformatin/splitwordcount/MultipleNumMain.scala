@@ -1,4 +1,4 @@
-package com.tencent.cubeli.spark.splitwordcount
+package com.tencent.cubeli.spark.transformatin.splitwordcount
 
 import org.apache.spark.{SparkConf, SparkContext}
 

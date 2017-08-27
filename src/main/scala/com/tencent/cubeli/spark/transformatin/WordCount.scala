@@ -1,11 +1,12 @@
-package com.tencent.cubeli
+package com.tencent.cubeli.spark.transformatin
+
 import org.apache.spark.{SparkConf, SparkContext}
 
 /**
   * Hello world!
   *
   */
-object App {
+object WordCount {
 
   def main(args: Array[String]): Unit = {
 

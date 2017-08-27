@@ -1,4 +1,4 @@
-package com.tencent.cubeli.spark
+package com.tencent.cubeli.spark.transformatin
 
 import org.apache.spark.{SparkConf, SparkContext}
 
