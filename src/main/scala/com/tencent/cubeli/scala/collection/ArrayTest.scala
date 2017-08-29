@@ -1,4 +1,4 @@
-package com.tencent.cubeli.scala
+package com.tencent.cubeli.scala.collection
 
 /**
   * Created by waixingren on 8/25/17.
