@@ -1,5 +1,7 @@
 package com.tencent.cubeli.scala.scalaclass.companion
 
+import scala.collection.mutable.ArrayBuffer
+
 /**
   * Created by waixingren on 8/31/17.
   */
@@ -9,6 +11,9 @@ package com.tencent.cubeli.scala.scalaclass.companion
 class TrainingPartition(val partitionNum: Int, val path:String, val tableName:String){
 
 
+  val array = ArrayBuffer(1,2,3)
+  array += 4
+  array.par
 }
 
 //单例对象和类同名，那么这个单例对象叫做类的伴生对象，像不像工厂模式？
