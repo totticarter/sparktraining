@@ -10,17 +10,12 @@ import scala.io.Source
 object CommonUse {
 
   def main(args: Array[String]): Unit = {
-
-
     processIpFile("/Users/waixingren/bigdata-java/spark/sparkproj/data/ip.txt", "192")
   }
 
   def processIpFile(fileName:String, prefix: String): Unit ={
-
-
+    //方法内部定义方法
     def processLine3(line: String, prefix: String):Boolean = {
-
-
       if(line.startsWith(prefix)){
 
         return true
@@ -39,11 +34,9 @@ object CommonUse {
     }
   }
 
+  //方法外部定义方法
   def processLine1(line: String, prefix: String):Boolean = {
-
-
     if(line.startsWith(prefix)){
-
       return true
     }else{
       return false
@@ -58,7 +51,6 @@ object CommonUse {
     }else{
       flag = false
     }
-
     flag
   }
 }
