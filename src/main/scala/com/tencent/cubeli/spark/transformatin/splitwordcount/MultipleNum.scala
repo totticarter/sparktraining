@@ -7,8 +7,8 @@ import org.apache.spark.rdd.RDD
   */
 class MultipleNum(flag: Boolean) {
 
-  private val times1 = 1;
-  private val times2 = 2;
+  private val times1:Int = 1;//不管这里是否明确指定times1的类型，都会报任务无法序列化的错
+  private val times2:Int = 2;
 
   def doMap(rdd: RDD[String]):RDD[(String, Int)] = {
 
