@@ -14,7 +14,7 @@ import scala.io.Source
 object NationTable {
 
   def main(args: Array[String]): Unit = {
-    val conf = new SparkConf().setMaster("yarn").setAppName("nation")
+    val conf = new SparkConf().setMaster("local").setAppName("nation")
     val sc = new SparkContext(conf)
 
 
