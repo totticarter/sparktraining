@@ -14,7 +14,10 @@ object Reduce {
     val sc = new SparkContext(conf)
 
     //如果在方法定义时，把输入参数作为一个二元组，那么在调用时不能只写方法名，还要加上方法的参数
-    sc.textFile(Config.nationtblLocalPath).map(_.split("\\|")).map(arr => arr(0).toInt).reduce((a,b)=> max((a,b)))
+    sc.textFile(Config.nationtblLocalPath).
+      map(_.split("\\|"))
+      .map(arr => arr(0).toInt).
+      reduce((a,b)=> max((a,b)))
 
     //如果在方法定义时，把输入参数作为两个分开的参数，则在调用时可以直接写方法名
     sc.textFile(Config.nationtblLocalPath).map(_.split("\\|")).map(arr => arr(0).toInt).reduce(sumFunc)

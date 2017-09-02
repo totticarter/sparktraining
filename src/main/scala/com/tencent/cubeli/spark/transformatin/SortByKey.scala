@@ -12,7 +12,12 @@ object SortByKey {
     val conf = new SparkConf().setMaster("local").setAppName("SortByKey")
     val sc = new SparkContext(conf)
 
-    val rowData = sc.textFile("/Users/waixingren/bigdata-java/spark/sparkproj/data/nation.tbl").map(_.split("\\|")).map(v => (v(2),v)).sortByKey().collect.foreach(println)
+    val rowData = sc.textFile("/Users/waixingren/bigdata-java/spark/sparkproj/data/nation.tbl").
+      map(_.split("\\|")).
+      map(v => (v(2),v)).
+      sortByKey().
+      collect.
+      foreach(println)
 
   }
 }

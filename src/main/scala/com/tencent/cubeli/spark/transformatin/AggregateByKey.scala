@@ -13,10 +13,14 @@ object AggregateByKey {
     val sc = new SparkContext(conf)
 
     val data = List((1,3),(1,4),(1,3),(3,3),(2,2),(4,4),(4,5))
+    //val rdd = sc.parallelize(data,1).aggregateByKey(10000)(concatPart, concatFinal).collect.foreach(println)
     val rdd = sc.parallelize(data,1).aggregateByKey("10000")(concatPart, concatFinal).collect.foreach(println)
+    //zerovalue Int, seqOp(Int,Int) => Int, compOp (Int, Int) => Int
+    //zerovalue String, seqOp(String, Int) => String, compOp (String, String) => String
   }
 
 
+  //函数的参数不能交换顺序
   def concatPart(a:String, b: Int):String = {
 
     a.toString + b.toString

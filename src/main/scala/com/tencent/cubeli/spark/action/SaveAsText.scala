@@ -13,7 +13,9 @@ object SaveAsText {
     val conf = new SparkConf().setMaster(Config.master).setAppName("saveastext")
     val sc = new SparkContext(conf)
 
-    sc.textFile(Config.nationtblLocalPath).map(_.split("\\|")(3)).saveAsTextFile(Config.outputDirPath+"-comment.txt")
+    sc.textFile(Config.nationtblLocalPath).
+      map(_.split("\\|")(3)).
+      saveAsTextFile(Config.outputDirPath+"-comment.txt")
   }
 
 }
