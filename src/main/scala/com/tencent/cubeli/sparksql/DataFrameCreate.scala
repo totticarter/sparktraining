@@ -41,7 +41,9 @@ object DataFrameCreate {
     //============================通过创建临时表查询========================================
     //df 这个dataframe来自spark这个sparksession，df注册了一个临时表以后，spark这个session就知道有一个和df关联的临时表nation
     df.createTempView("nation")
-    spark.sql("select count(*) from nation where nationkey>9 group by regionkey").show()
+    spark.
+      sql("select count(*) from nation where nationkey>9 group by regionkey").
+      show()
 
 
 
