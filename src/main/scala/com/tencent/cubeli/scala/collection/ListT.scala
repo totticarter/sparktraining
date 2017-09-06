@@ -10,5 +10,7 @@ object ListT {
 
     val list = List(1,2,3,4,5)
     val listStr = List("one", "two", "three")
+    listStr.map(str => str+"subfix").foreach(println)
+    listStr.map(_+"subfix").foreach(println(_))
   }
 }

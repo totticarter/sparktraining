@@ -17,19 +17,15 @@ object ImplicitMethod {
       //编译不报错，执行报错
 //      str.toInt
 
-      //空指针异常
-      Integer.getInteger(str)
+      Integer.parseInt(str)
 
-
-      //执行不报错
-      5
     }
   }
   def main(args: Array[String]): Unit = {
 
     val m = math.max(1,2)
-
     import Impl.strToInt //演示如果没有这个隐式转换方法，下边的max编译会报错
     val n2 = math.max("1", 2)
+    println(n2)
   }
 }

@@ -13,7 +13,13 @@ object closure {
     list.map(i => i+addedValue).foreach(println)
 
     println("================")
-    closureVChanged()
+
+    var totalTime = 0
+    list.map(t => totalTime += t)
+    println(totalTime)
+
+
+//    closureVChanged()
   }
 
   def closureVChanged(): Unit ={
