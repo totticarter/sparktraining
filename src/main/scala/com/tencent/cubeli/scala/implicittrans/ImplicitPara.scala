@@ -8,6 +8,14 @@ package com.tencent.cubeli.scala.implicittrans
   * 隐式参数的值可以在方法调用的前的上下文中指定，这是隐式参数更加灵活的地方。
   */
 
+/**
+  * 隐式参数
+  * 隐式参数一般和柯里化进行结合,使用该函数不用给出implicit的值
+  *
+  * @param param
+  * @param impl
+  */
+
 object ImplicitPara {
 
   object Greeter{

@@ -44,11 +44,25 @@ object FileLines {
         reader.close()
       }
     }
+
+    def getlineNum(file:File):Int = {
+      val fileReader = new FileReader(file)
+      val reader = new BufferedReader(fileReader)
+      var count:Int = 0
+      var line = reader.readLine()
+      while(line != null){
+        count += 1
+        line = reader.readLine()
+      }
+      reader.close()
+      count
+    }
   }
 
   //这里直接定义了一个java的File对象，这个File对象本来是没有lines方法的，但是scala会去搜索有没有隐式实现
   //这里可以通过封装File来实现，但这无疑就多了一个类，不利于管理
-  private val file: File = new File("/Users/waixingren/bigdata-java/spark/sparkproj/data/nation.tbl")
+  private val file: File = new File("D:\\bigdata\\training\\sparktraining\\data\\nation.tbl")
+  println(file.getlineNum(file))
 
 //  file.lines foreach println
 

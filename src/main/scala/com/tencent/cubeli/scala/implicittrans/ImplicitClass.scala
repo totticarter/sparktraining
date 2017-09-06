@@ -7,6 +7,20 @@ package com.tencent.cubeli.scala.implicittrans
 Note: This means an implicit class cannot be a case class.
 隐式类与旧的隐式转换的语法（implicit def）是有细微的不同的，隐式类的运作方式是：隐式类的主构造函数只能有一个参数（有两个以上并不会报错，但是这个隐式类永远不会被编译器作为隐式类在隐式转化中使用），且这个参数的类型就是将要被转换的目标类型。从语义上这很自然：这个隐式转换类将包裹目标类型，隐式类的所有方法都会自动“附加”到目标类型上。
   */
+
+/**
+  * 隐式类有如下几个限制:
+  * They must be defined inside of another trait/class/object.
+  * They may only take one non-implicit argument in their constructor.
+  * There may not be any method, member or object in scope with the same name as the implicit class.
+  * Note: This means an implicit class cannot be a case class.
+  * 隐式类的运作方式：
+  * 隐式类的主构造函数只能有一个参数（有两个以上并不会报错，但是这个隐式类永远不会被编译器作为隐式类在隐式转化中使用）
+  * 且这个参数的类型就是将要被转换的目标类型
+  * 隐式转换类将包裹目标类型，隐式类的所有方法都会自动"附加"到目标类型上
+  *
+  * @param origin 隐式类构造函数参数
+  */
 object ImplicitClass {
 
 

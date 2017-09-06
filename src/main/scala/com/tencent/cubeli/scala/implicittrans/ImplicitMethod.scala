@@ -7,6 +7,14 @@ package com.tencent.cubeli.scala.implicittrans
   * 演示implicit function：
   * 如果从一个方法返回的是一个string表示的int，需要和另外一个int类型比较大小，如果为了代码美观，可以不用自己把string转换成int，定义一个隐式转换方法即可
   */
+
+/**
+  * 隐式转换函数是指在同一个作用域下面，一个给定输入类型并自动转换为指定返回类型的函数，
+  * 这个函数和函数名字无关，和入参名字无关，只和入参类型以及返回类型有关
+  *
+  * @param str
+  * @return
+  */
 object ImplicitMethod {
 
 
