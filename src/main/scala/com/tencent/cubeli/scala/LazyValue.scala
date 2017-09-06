@@ -8,7 +8,8 @@ object LazyValue {
 
   def main(args: Array[String]): Unit = {
 
-    lazy val lines = fromFile("/Users/waixingren/bigdata-java/spark/sparkproj/src/main/scala/com/tencent/cubeli/scala/Func.scala").mkString
+    lazy val lines = fromFile("/Users/waixingren/bigdata-java/spark/sparkproj/" +
+      "src/main/scala/com/tencent/cubeli/scala/Func.scala").mkString
     lines.foreach(print)
 
   }
