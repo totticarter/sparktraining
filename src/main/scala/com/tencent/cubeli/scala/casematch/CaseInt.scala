@@ -37,6 +37,18 @@ object CaseInt {
     }
     println(matchedHostname)
 
+
+    //类型匹配
+    val s:Any = Map(1 -> "one")
+    val len:Int = s match {
+
+      case strVal:String => strVal.length
+      case intVal:Int => intVal
+      case map:Map[_, _] => map.size
+    }
+    println("类型匹配测试")
+    println(len)
+
     //演示匹配多种不同的类型
     //val v:Any = "six"
     val v:Any = ("10.11.111.34", 10)
