@@ -13,12 +13,13 @@ object ReduceByKey{
 
     val x = sc.parallelize(Array(("a", 1), ("b", 1), ("a", 2),("a", 1), ("b", 1), ("b", 5),("b", 3), ("b", 1)), 3)
     x.reduceByKey((a,b) => max((a,b))).collect.foreach(println)
+    //x.reduceByKey((a,b) => a.toString).collect.foreach(println)
 
   }
 
+
   def max(thisandnext:(Int, Int)):Int = {
 
-    println("get lagger one")
     if(thisandnext._1 >= thisandnext._2){
       thisandnext._1
     }else{

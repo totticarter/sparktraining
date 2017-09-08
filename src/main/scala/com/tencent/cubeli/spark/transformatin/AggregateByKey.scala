@@ -15,8 +15,16 @@ object AggregateByKey {
     val data = List((1,3),(1,4),(1,3),(3,3),(2,2),(4,4),(4,5))
     //val rdd = sc.parallelize(data,1).aggregateByKey(10000)(concatPart, concatFinal).collect.foreach(println)
     val rdd = sc.parallelize(data,1).aggregateByKey("10000")(concatPart, concatFinal).collect.foreach(println)
-    //zerovalue Int, seqOp(Int,Int) => Int, compOp (Int, Int) => Int
-    //zerovalue String, seqOp(String, Int) => String, compOp (String, String) => String
+//    zerovalue Int, seqOp(Int,Int) => Int, compOp (Int, Int) => Int
+//    zerovalue String, seqOp(String, Int) => String, compOp (String, String) => String
+
+    val zero = collection.mutable.Set[Int]()
+    sc.parallelize(data,1).aggregateByKey(zero)((set, v) => set += v, (set1, set2) => set1 ++= set2)
+
+
+    //使用reducebykey实现
+    sc.parallelize(data,1).map(kv => (kv._1, collection.mutable.Set[Int]() + kv._2))
+      .reduceByKey(_ ++ _)
   }
 
 

@@ -7,25 +7,25 @@ import org.apache.spark.sql.Row
 import org.apache.spark.sql.SparkSession
 //演示自定义聚合函数，把nation的nationkey进行加权求和，加权值根据regionkey来确定
 //没有调通，报错
-object Main{
+//object Main{
 
-  def main(args: Array[String]): Unit = {
-    val conf = new SparkConf().setMaster("local").setAppName("df create")
-    val sc = new SparkContext(conf)
-    val spark = SparkSession
-      .builder()
-      .appName("Spark SQL basic example")
-      .config("spark.some.config.option", "some-value")
-      .getOrCreate()
-    spark.udf.register("weightSum", WeightSum)
-
-    val df = spark.read.json("D:\\bigdata\\training\\sparktraining\\data\\nation.json")
-    df.createOrReplaceTempView("nation")
-    df.show()
-
-    spark.sql("SELECT weightSum(nationkey)  FROM nation").show()
-  }
-}
+//  def main(args: Array[String]): Unit = {
+//    val conf = new SparkConf().setMaster("local").setAppName("df create")
+//    val sc = new SparkContext(conf)
+//    val spark = SparkSession
+//      .builder()
+//      .appName("Spark SQL basic example")
+//      .config("spark.some.config.option", "some-value")
+//      .getOrCreate()
+//    spark.udf.register("weightSum", WeightSum)
+//
+//    val df = spark.read.json("D:\\bigdata\\training\\sparktraining\\data\\nation.json")
+//    df.createOrReplaceTempView("nation")
+//    df.show()
+//
+//    spark.sql("SELECT weightSum(nationkey)  FROM nation").show()
+//  }
+//}
 
 
 object WeightSum extends UserDefinedAggregateFunction {

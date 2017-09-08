@@ -9,7 +9,7 @@ object Distinct {
 
   def main(args: Array[String]): Unit = {
 
-    val conf = new SparkConf().setMaster("yarn").setAppName("wordcount")
+    val conf = new SparkConf().setMaster("local").setAppName("wordcount")
     val sc = new SparkContext(conf)
     val data = Array(1, 1, 3, 4, 5)
     val distData = sc.parallelize(data)

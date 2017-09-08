@@ -9,14 +9,10 @@ object DataFrameCreate {
 
     val conf = new SparkConf().setMaster("local").setAppName("df create")
     val sc = new SparkContext(conf)
-    val spark = SparkSession
-      .builder()
-      .appName("Spark SQL basic example")
-      .config("spark.some.config.option", "some-value")
-      .getOrCreate()
+    val spark = SparkSession.builder().appName("Spark SQL basic example").config("spark.some.config.option", "some-value").getOrCreate()
 
     import spark.implicits._
-    val df = spark.read.json("D:\\bigdata\\training\\sparktraining\\data\\nation.json")
+    val df = spark.read.json("file:///Users/waixingren/bigdata-java/spark/sparkproj/data/nation.json")
 //    println("=========group by sum wich dataframe===================")
 //    df.
 //      filter($"nationkey">9).

@@ -12,8 +12,9 @@ object WordCount {
 
     val conf = new SparkConf().setMaster("yarn").setAppName("wordcount")
     val sc = new SparkContext(conf)
-    val sourcdRdd = sc.textFile("file:///Users/waixingren/bigdata-java/spark/sparkproj/pom.xml");
-    sourcdRdd.flatMap(_.split(" ")).map((_,1)).reduceByKey(_ + _).collect().foreach(println)
+    val sourcdRdd = sc.textFile("file:///Users/waixingren/software/tpch/tpch-dbgen/lineitem.tbl");
+//    val sourcdRdd = sc.textFile("file:///Users/waixingren/software/tpch/tpch-dbgen/nation.tbl");
+    sourcdRdd.flatMap(_.split("\\|")).map((_,1)).reduceByKey(_ + _).take(10).foreach(println)
     sc.stop()
   }
 }

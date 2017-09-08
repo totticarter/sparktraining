@@ -14,12 +14,14 @@ object Persist {
       map(line => line.split("\\|")).
       map(arr => (arr(2).toInt, arr(0)+ "---" + arr(1) + "---" + arr(3)))
     nationrdd.persist(StorageLevel.DISK_ONLY)
+
     //nationrdd.persist(StorageLevel.DISK_ONLY_2)
     //nationrdd.persist(StorageLevel.MEMORY_AND_DISK_2)
     //nationrdd.persist(StorageLevel.OFF_HEAP)
 
     val rawData = List((1,12345),(1,23445),(3,18987))
     val rawDataRdd = sc.parallelize(rawData)
+    rawDataRdd.checkpoint()
     rawDataRdd.persist()
 
     nationrdd.join(rawDataRdd).collect.foreach(println)

@@ -18,12 +18,12 @@ object ForEach {
     val conf = new SparkConf().setMaster(Config.master).setAppName("saveastext")
     val sc = new SparkContext(conf)
 
-    sc.textFile(Config.nationtblLocalPath).map(_.split("\\|")(3)).foreach(writeToFile)
+    sc.textFile("file:///Users/waixingren/bigdata-java/spark/sparkproj/data/nation.tbl").map(_.split("\\|")(3)).foreach(writeToFile)
   }
 
   def writeToFile(line:String): Unit ={
 
-     val targetFile = new PrintWriter(new File(Config.outputDirPath + "foreach.txt"))
+     val targetFile = new PrintWriter(new File("file:///Users/waixingren/bigdata-java/spark/sparkproj/output/" + "foreach.txt"))
      targetFile.append(line)
   }
 

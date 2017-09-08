@@ -24,6 +24,10 @@ object MapT {
     ip2Hostname -= ("a")
     ip2Hostname.foreach(println)
 
+    val keys = ip2Hostname.keys
+    val vals = ip2Hostname.values
+    vals.foreach(println)
+
 
     //=======================================================
     var treeMap = new TreeMap[String, Int]()
