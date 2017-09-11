@@ -42,8 +42,8 @@ object Main{
     import spark.implicits._
     val ds = spark.read.json("file:///Users/waixingren/bigdata-java/spark/sparkproj/data/nation.json").as[Nation]
 
-    val averageSalary = MyAverage.toColumn.name("averageOneColumn")
-    val result = ds.select(averageSalary)
+    val averageNationkey = MyAverage.toColumn.name("averageNationkey")
+    val result = ds.select(averageNationkey)
     result.show()
   }
 }

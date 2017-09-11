@@ -40,4 +40,4 @@ object DatasetCreate {
   }
 }
 
-case class Nation(nationkey:Long, nationName:String, regionKey:Long, comment:String)
+//case class Nation(nationkey:Long, nationName:String, regionKey:Long, comment:String)
