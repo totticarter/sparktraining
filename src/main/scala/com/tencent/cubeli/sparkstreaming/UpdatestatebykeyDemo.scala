@@ -33,8 +33,8 @@ object UpdatestatebykeyDemo {
 
 
     val initialRDD = ssc.sparkContext.parallelize(List(("page1", 0.00)))
-    val stateDstream = wordDstream.updateStateByKey[Double](updateFuncDouble2,
-      new HashPartitioner(ssc.sparkContext.defaultParallelism), true, initialRDD)
+//    val stateDstream = wordDstream.updateStateByKey[Double](updateFuncDouble2,
+//      new HashPartitioner(ssc.sparkContext.defaultParallelism), true, initialRDD)
 val stateDstream = wordDstream.updateStateByKey[Int](updateFunc)
     stateDstream.print(10)
     ssc.start()
@@ -47,15 +47,15 @@ val stateDstream = wordDstream.updateStateByKey[Int](updateFunc)
     Some(currentCount + previousCount)
   }
 
-  val updateFuncDouble = (values : Seq[Double],state : Option[Double]) => {
-
-//    val sum = values.sum
-//    Some(sum + state.get)
-
-    val currentCount  = values.foldLeft(0.0)(_+_)
-    val previousCount = state.getOrElse(0)
-    Some(currentCount + previousCount)
-  }
+//  val updateFuncDouble = (values : Seq[Double],state : Option[Double]) => {
+//
+////    val sum = values.sum
+////    Some(sum + state.get)
+//
+//    val currentCount  = values.foldLeft(0.0)(_+_)
+//    val previousCount = state.getOrElse(0)
+//    Some(currentCount + previousCount)
+//  }
 
   val updateFuncDouble2 = (iterator: Iterator[(String, Seq[Double], Option[Double])]) => {
     iterator.flatMap(t => {

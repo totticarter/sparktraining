@@ -1,15 +1,13 @@
 package com.tencent.cubeli.scala.function
 
-object AnonymousFunc {
+/**
+  * Created by cubeli on 2017/9/13.
+  */
+package com.tencent.cubeli.scala.function
+
+object ReturnTest {
 
   def main(args: Array[String]): Unit = {
-
-    //参数需要有参数类型和括号
-    val funVar = (x:Int) =>{
-
-      x+1
-    }
-    println(funVar(2))
 
     println(sum1(1,2,3,4))
     println(sum2(1,2,3,4))
