@@ -27,7 +27,7 @@ object UpdatestatebykeyDemo {
     val conf = new SparkConf().setAppName("test").setMaster("local[2]")
     val ssc = new StreamingContext(conf, Seconds(3))
     ssc.checkpoint("file:///Users/waixingren/bigdata-java/spark/sparkproj/checkpoint")
-    val lines = ssc.socketTextStream("192.168.1.102",12345)
+    val lines = ssc.socketTextStream("localhost",12345)
     val data = lines.flatMap(_.split(" "))
     val wordDstream = data.map(x => (x,3))
 
