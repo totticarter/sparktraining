@@ -1,7 +1,5 @@
 package com.tencent.cubeli.java.collection.queue;
 
-import java.util.Queue;
-
 /**
  * Created by cubeli on 2017/9/20.
  */
@@ -18,9 +16,10 @@ public class Consumer implements  Runnable{
 
         try{
 
-            for(int i = 0; i < 10; i++){
+            for(int i = 0; i < 100; i++){
                 Thread.sleep(1000);
-                queue.poll();
+                int value = (int)queue.poll();
+                System.out.println("poll " + value);
             }
         }catch (Exception e){
             e.printStackTrace();
