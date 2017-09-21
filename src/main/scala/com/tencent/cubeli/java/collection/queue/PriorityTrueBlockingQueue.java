@@ -9,16 +9,16 @@ import java.util.concurrent.locks.ReentrantLock;
  * Created by cubeli on 2017/9/19.
  */
 @SuppressWarnings("unused")
-public class PriorityTrueBlockingQueue<T> {
+public class PriorityTrueBlockingQueue {
 
     private int queueCapacity = 10;
-    private Queue<T> queue = new PriorityBlockingQueue<>();
+    private Queue<PriorityQueueExample.Customer> queue = new PriorityBlockingQueue<>(10,PriorityQueueExample.idComparator);
     private ReentrantLock putLock = new ReentrantLock();
     private ReentrantLock takeLock = new ReentrantLock();
     private Condition notFull = putLock.newCondition();
     private Condition notEmpty = takeLock.newCondition();
 
-    public void put(T e) throws InterruptedException{
+    public void put(PriorityQueueExample.Customer e) throws InterruptedException{
 
         try{
             putLock.lockInterruptibly();
@@ -28,11 +28,11 @@ public class PriorityTrueBlockingQueue<T> {
                                 //等待其他的producer线程通知；二是在poll方法中，等待consumer线程消费掉一个队列元素，会
                                 //使队列元素数降下来
             }
-            System.out.println("put: queue is not full, add element");
+//            System.out.println("put: queue is not full, add element");
             this.queue.add(e);
-            System.out.println("put: after add e, queue size is: " + queue.size());
+//            System.out.println("put: after add e, queue size is: " + queue.size());
             if(queue.size() + 1 < queueCapacity){
-                System.out.println("put: queue size add 1 smaller than capacity, begin to signal");
+//                System.out.println("put: queue size add 1 smaller than capacity, begin to signal");
                 notFull.signal();
             }
         }finally {
@@ -40,20 +40,20 @@ public class PriorityTrueBlockingQueue<T> {
         }
     }
 
-    public T poll() throws InterruptedException{
+    public PriorityQueueExample.Customer poll() throws InterruptedException{
 
         try{
-            T e = null;
+            PriorityQueueExample.Customer e = null;
             takeLock.lock();
             if(queue.size() > 0){
-                System.out.println("poll: queue size bigger than 0, begin to poll");
+//                System.out.println("poll: queue size bigger than 0, begin to poll");
                 e = queue.poll();
-                System.out.println("poll: after poll, queue size is: " + queue.size());
+//                System.out.println("poll: after poll, queue size is: " + queue.size());
                 if(queue.size() > 0){
                     notEmpty.signal();//其实这里可以不需要signal，因为如果队列元素为0，返回null即可
                 }
                 if(queue.size() < queueCapacity){//队列"没满"，满足put方法中的等待条件，所以要signal
-                    System.out.println("poll: queue size equal capacity, signal to put");
+//                    System.out.println("poll: queue size equal capacity, signal to put");
                     putLock.lock();
                     notFull.signal();
                 }

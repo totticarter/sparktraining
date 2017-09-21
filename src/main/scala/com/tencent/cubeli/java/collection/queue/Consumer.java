@@ -16,10 +16,10 @@ public class Consumer implements  Runnable{
 
         try{
 
-            for(int i = 0; i < 100; i++){
-                Thread.sleep(1000);
-                int value = (int)queue.poll();
-                System.out.println("poll " + value);
+            for(int i = 0; i < 1000; i++){
+                Thread.sleep(100);
+                PriorityQueueExample.Customer customer = (PriorityQueueExample.Customer)queue.poll();
+                System.out.println("poll " + customer.getId());
             }
         }catch (Exception e){
             e.printStackTrace();

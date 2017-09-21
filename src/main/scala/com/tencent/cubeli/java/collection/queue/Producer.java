@@ -20,11 +20,13 @@ public class Producer implements  Runnable{
 
         try{
 
-            for(int i = 0; i < 100; i++){
-                Thread.sleep(100);
-                int value = random.nextInt(100);
-                System.out.println("put " + value + " to queue");
-                queue.put(value);
+            for(int i = 0; i < 1000; i++){
+                Thread.sleep(10);
+                int id = random.nextInt(100);
+                String name = "userid" + String.valueOf(id);
+                System.out.println("put " + id);
+                PriorityQueueExample.Customer customer = new PriorityQueueExample.Customer(id, name);
+                queue.put(customer);
             }
         }catch (InterruptedException e){
             e.printStackTrace();

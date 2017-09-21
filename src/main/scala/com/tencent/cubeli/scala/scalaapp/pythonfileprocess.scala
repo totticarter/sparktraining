@@ -8,6 +8,10 @@ object pythonfileprocess {
 
   def main(args: Array[String]): Unit = {
 
+    val o = new Object()
+    val b = o.asInstanceOf[String]
+
+
     val orgiFile = fromFile("E:\\bigdata\\crawler\\com\\tencent\\cubeli\\hash\\consistenthash.py")
     for(line <- orgiFile.getLines()){
 
