@@ -9,7 +9,7 @@ object CaseClassT {
     val a:Any = HadoopPartition("hdfs://192.168.12.11:9000/log/20150718",0, 2048)
     a match{
 
-      case HadoopPartition(a1,b,c) => print("hadoop partition")
+      case HadoopPartition(a1,b,c) => print("hadoop partition, path is: " + a1)
       case TextPartition(a1) => println("text partition")
     }
   }
