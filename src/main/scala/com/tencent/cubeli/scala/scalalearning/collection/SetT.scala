@@ -12,6 +12,9 @@ object SetT {
 
     set += 5
     set.foreach(println)
+    if(set(4)){
+      println("contains...")
+    }
 
 
     println(set.exists(_ % 3 == 0))

@@ -18,7 +18,7 @@ public class Consumer implements  Runnable{
 
             for(int i = 0; i < 1000; i++){
                 Thread.sleep(100);
-                PriorityQueueExample.Customer customer = (PriorityQueueExample.Customer)queue.poll();
+                PriorityQueueExample.Customer customer = queue.poll();
                 System.out.println("poll " + customer.getId());
             }
         }catch (Exception e){
