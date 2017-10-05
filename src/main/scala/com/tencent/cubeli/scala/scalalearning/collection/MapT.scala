@@ -26,7 +26,6 @@ object MapT {
 
     val keys = ip2Hostname.keys
     val vals = ip2Hostname.values
-    ip2Hostname.mapValues()
     vals.foreach(println)
 
 
