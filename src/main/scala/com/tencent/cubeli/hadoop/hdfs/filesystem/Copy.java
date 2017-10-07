@@ -16,7 +16,7 @@ public class Copy {
 
     public static void main(String[] args) {
 
-        String copyMode = "copy";//copyfromlocal;copytolocal;copy
+        String copyMode = "copyfromlocal";//copyfromlocal;copytolocal;copy
 
         FileSystem hdfs = null;
         if(copyMode.equals("copyfromlocal")){
