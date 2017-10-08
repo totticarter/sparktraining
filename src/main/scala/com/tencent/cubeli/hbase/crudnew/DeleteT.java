@@ -17,19 +17,23 @@ import java.io.IOException;
 public class DeleteT {
 
     public static void main(String[] args) {
-        String rowKey = "mike";
+        String rowKey = "cubeli";
         String tableName = "member";
 
         String[] addressColumns = {"country", "city"};
         String[] addressValues = {"China", "ShenZhen"};
 
         try{
-        Configuration conf = HBaseConfiguration.create();
-        Connection connection = ConnectionFactory.createConnection(conf);
-        Table table = connection.getTable(TableName.valueOf(tableName));
+            Configuration conf = HBaseConfiguration.create();
+            Connection connection = ConnectionFactory.createConnection(conf);
+            Table table = connection.getTable(TableName.valueOf(tableName));
 
-        Delete delete = new Delete(Bytes.toBytes(rowKey));
-        delete.addFamily()
+            Delete delete = new Delete(Bytes.toBytes(rowKey));
+            String address = "address";
+            String country = "country";
+//            delete.addFamily(address.getBytes());
+            delete.addColumn(address.getBytes(), country.getBytes());
+            table.delete(delete);
 
         }catch (IOException e){
             e.printStackTrace();
