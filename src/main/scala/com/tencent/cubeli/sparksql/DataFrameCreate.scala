@@ -28,7 +28,7 @@ object DataFrameCreate {
 //    df.printSchema()
 //
 //    println("=========print out nationkey in dataframe===================")
-//    df.select("nationkey").show()
+    df.select("nationkey").show()
 //
 //    println("=========print out row which nationkey > 9 in dataframe===================")
 //    df.filter($"nationkey">9).show()

@@ -1,9 +1,13 @@
 package com.tencent.cubeli.kafka.producer;
 
+import kafka.javaapi.producer.Producer;
 import kafka.producer.KeyedMessage;
 import kafka.producer.ProducerConfig;
-import kafka.javaapi.producer.Producer;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.Properties;
 
 /**
@@ -13,17 +17,29 @@ import java.util.Properties;
  */
 public class ProducerT {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException,InterruptedException{
 
         Properties props = new Properties();
 
-        props.put("metadata.broker.list", "localhost:9092");
+        props.put("metadata.broker.list", "localhost:9090");
         props.put("serializer.class", "kafka.serializer.StringEncoder");
         props.put("request.required.acks", "1");
         ProducerConfig config = new ProducerConfig(props);
         Producer<String, String> producer = new Producer<String, String>(config);
 
-        KeyedMessage<String, String> data = new KeyedMessage<String, String>("tpch", "key", "hello world");
-        producer.send(data);
+        File ordersFile = new File("/Users/waixingren/software/tpch/tpch-dbgen/orders.tbl");
+        BufferedReader reader = new BufferedReader(new FileReader(ordersFile));
+        String oneLine = null;
+        int count = 0;
+        while((oneLine = reader.readLine()) != null){
+
+            if(count++%100 == 0){
+                System.out.println("Sent " + count + " messages to kafka!");
+            }
+            KeyedMessage<String, String> data = new KeyedMessage<String, String>("tpch2.orders", "key", oneLine);
+            producer.send(data);
+            Thread.sleep(10);
+        }
+        reader.close();
     }
 }

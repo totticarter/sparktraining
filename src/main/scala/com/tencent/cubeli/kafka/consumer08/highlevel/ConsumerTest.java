@@ -1,4 +1,4 @@
-package com.tencent.cubeli.kafka.consumer.highlevel;
+package com.tencent.cubeli.kafka.consumer08.highlevel;
 
 import kafka.consumer.ConsumerIterator;
 import kafka.consumer.KafkaStream;

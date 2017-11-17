@@ -1,4 +1,4 @@
-package com.tencent.cubeli.kafka.consumer.highlevel;
+package com.tencent.cubeli.kafka.consumer08.highlevel;
 
 /**
  * Created by waixingren on 10/8/17.
@@ -22,8 +22,7 @@ public class HighLevelConsumer {
     private  ExecutorService executor;
 
     public HighLevelConsumer(String a_zookeeper, String a_groupId, String a_topic) {
-        consumer = kafka.consumer.Consumer.createJavaConsumerConnector(
-                createConsumerConfig(a_zookeeper, a_groupId));
+        consumer = kafka.consumer.Consumer.createJavaConsumerConnector(createConsumerConfig(a_zookeeper, a_groupId));
         this.topic = a_topic;
     }
 
@@ -77,7 +76,7 @@ public class HighLevelConsumer {
 
         String zooKeeper = "localhost:2181";
         String groupId = "g1";
-        String topic = "tpch";
+        String topic = "tpch2.orders";
         int threads = 1;
 
         HighLevelConsumer example = new HighLevelConsumer(zooKeeper, groupId, topic);
