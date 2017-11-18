@@ -825,11 +825,12 @@ public class BTree2<K, V>
     public static void main(String[] args)
     {
         Random random = new Random();
+        int[] kvs = {5, 42, 56, 95, 63, 13, 6, 13, 27, 9};
         BTree2<Integer, Integer> btree = new BTree2<Integer, Integer>(3);
         List<Integer> save = new ArrayList<Integer>();
         for(int i = 0; i < 10; ++ i)
         {
-            int r = random.nextInt(100);
+            int r = kvs[i];
             save.add(r);
             System.out.println(r);
             btree.insert(r, r);
