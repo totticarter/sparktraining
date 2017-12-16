@@ -3,7 +3,8 @@ package com.tencent.cubeli.java.datastructure.tree;
 /**
  * Created by waixingren on 18/11/2017.
  */
-import java.util.Stack;
+
+import java.util.*;
 
 /**
  * 二叉树的链式存储
@@ -19,11 +20,14 @@ import java.util.Stack;
 public class BinaryTree {
 
 
-    private TreeNode root=null;
+    public TreeNode root=null;
 
     public BinaryTree(){
         root=new TreeNode(1,"rootNode(A)");
     }
+
+    public static Map<TreeNode, List<TreeNode>> nodeToNodes = new HashMap<>();
+
 
     /**
      * 创建一棵二叉树
@@ -82,6 +86,27 @@ public class BinaryTree {
                     +size(subTree.rightChild);
         }
     }
+
+
+
+    public void childMatch(TreeNode root, TreeNode subtree){
+
+        List<TreeNode> nodes = nodeToNodes.get(root);
+        if(nodes == null){
+            nodes = new ArrayList<>();
+        }
+        if(subtree.leftChild != null && subtree.intData+1 == subtree.leftChild.intData){
+            nodes.add(subtree.leftChild);
+            nodeToNodes.put(root, nodes);
+            childMatch(root, subtree.leftChild);
+        }else if(subtree.rightChild != null && subtree.intData+1 == subtree.rightChild.intData){
+            nodes.add(subtree.rightChild);
+            nodeToNodes.put(root, nodes);
+            childMatch(root, subtree.rightChild);
+        }
+    }
+
+
 
     //返回双亲结点
     public TreeNode parent(TreeNode element){
@@ -235,9 +260,12 @@ public class BinaryTree {
     private class  TreeNode{
         private int key=0;
         private String data=null;
+        public int intData = 0;
         private boolean isVisted=false;
-        private TreeNode leftChild=null;
-        private TreeNode rightChild=null;
+        public TreeNode leftChild=null;
+        public TreeNode rightChild=null;
+
+        public TreeNode parent = null;
 
         public TreeNode(){}
 

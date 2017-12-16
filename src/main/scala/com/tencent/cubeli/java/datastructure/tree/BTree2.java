@@ -9,6 +9,7 @@ import java.util.*;
 /**
  * Created by waixingren on 10/2/17.
  * http://blog.csdn.net/u012124438/article/details/78109466
+ * 这个并非一个二叉树，而是一个多叉树。没有仔细跟过代码。
  *
  */
 public class BTree2<K, V>
