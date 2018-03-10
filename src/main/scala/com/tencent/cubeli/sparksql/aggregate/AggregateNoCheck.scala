@@ -19,6 +19,7 @@ object AggregateNoCheck {
 
     spark.udf.register("myAverage", AverageForDF)
     val df = spark.read.json("file:///Users/waixingren/bigdata-java/spark/sparkproj/data/nation.json")
+    df.printSchema()
     df.createOrReplaceTempView("Nation")
 
     val result = spark.sql("select myAverage(regionkey) from Nation")

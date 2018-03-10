@@ -13,6 +13,7 @@ object DataFrameCreate {
 
     import spark.implicits._
     val df = spark.read.json("file:///Users/waixingren/bigdata-java/spark/sparkproj/data/nation.json")
+
 //    println("=========group by sum wich dataframe===================")
     df.
       filter($"nationkey"<9).

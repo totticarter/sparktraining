@@ -13,4 +13,11 @@ object SparkUtil {
     val sc = new SparkContext(conf)
     sc
   }
+
+  def getSparkContext(mode:String):SparkContext = {
+
+    val conf = new SparkConf().setMaster(mode).setAppName("wordcount")
+    val sc = new SparkContext(conf)
+    sc
+  }
 }
