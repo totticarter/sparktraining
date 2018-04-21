@@ -14,7 +14,7 @@ object DataSetCreate2 {
     val sc = new SparkContext(conf)
     val spark = SparkSession.builder().appName("Spark SQL create dataset").config("spark.some.config.option", "some-value").getOrCreate()
     import spark.implicits._
-    val ds = spark.read.json("file:///Users/waixingren/bigdata-java/spark/sparkproj/data/nation.json").as[Nation]
+    val ds = spark.read.json("file:///Users/liyong/software/sparktraining/data/nation.json").as[Nation]
 
     val sketch = ds.stat.countMinSketch("regionkey", 10, 20, 42)
     println(sketch.estimateCount(0))

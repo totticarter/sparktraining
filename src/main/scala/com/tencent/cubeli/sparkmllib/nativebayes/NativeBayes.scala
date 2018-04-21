@@ -11,8 +11,8 @@ object NativeBayes {
 
   def main(args: Array[String]): Unit = {
 
-    val sc = SparkUtil.getSparkContext("yarn")
-    val data = MLUtils.loadLibSVMFile(sc, "file:///Users/waixingren/bigdata-java/spark/sparkproj/data/mllib/sample_libsvm_data.txt")
+    val sc = SparkUtil.getSparkContext("local")
+    val data = MLUtils.loadLibSVMFile(sc, "file:///Users/liyong/software/sparktraining/data/mllib/sample_libsvm_data.txt")
 
     // Split data into training (60%) and test (40%).
     val Array(training, test) = data.randomSplit(Array(0.6, 0.4))
