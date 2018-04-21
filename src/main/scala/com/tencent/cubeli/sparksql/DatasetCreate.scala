@@ -23,6 +23,8 @@ object DatasetCreate {
 //    val spark = SparkSession.builder().appName("Spark SQL basic example").config("spark.some.config.option", "some-value").getOrCreate()
 
 
+    //hotfix modify one file that master did not modify
+    //master modify
     import sparkSession.implicits._
     val data = sparkSession.read.text("file:///Users/waixingren/bigdata-java/spark/sparkproj/data/nation.tbl").as[String]
 
