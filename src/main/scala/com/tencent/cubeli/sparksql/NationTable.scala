@@ -24,6 +24,7 @@ object NationTable {
     import spark.implicits._
 
 
+    //test
     val nationSchemaMap = getNationSchemaArray("/Users/waixingren/bigdata-java/spark/sparkproj/data/nationschema.data")
     val fields = nationSchemaMap.map(filedInfo => getStructField(filedInfo))
     val schema = StructType(fields)
