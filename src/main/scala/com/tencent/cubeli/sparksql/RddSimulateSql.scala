@@ -16,6 +16,7 @@ object RddSimulateSql {
       reduceByKey(_+_).
       collect.
       foreach(println)
+//aaa
 
   }
 
