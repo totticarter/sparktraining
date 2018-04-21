@@ -8,6 +8,7 @@ import org.apache.spark.sql.Row
 import scala.collection.mutable.ArrayBuffer
 import scala.io.Source
 import scala._
+//aaa
 
 /**
   * Created by waixingren on 8/26/17.
