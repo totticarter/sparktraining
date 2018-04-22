@@ -7,7 +7,7 @@
   <properties>
     <scala.version>2.11.5</scala.version>
   </properties>
-
+<!-- diff first-->
   <repositories>
     <repository>
       <id>scala-tools.org</id>
@@ -16,6 +16,7 @@
     </repository>
   </repositories>
 
+<!-- diff second-->
   <pluginRepositories>
     <pluginRepository>
       <id>scala-tools.org</id>
