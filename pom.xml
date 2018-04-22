@@ -16,7 +16,6 @@
     </repository>
   </repositories>
 
-<!-- diff second-->
   <pluginRepositories>
     <pluginRepository>
       <id>scala-tools.org</id>
