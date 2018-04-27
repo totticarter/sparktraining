@@ -1,7 +1,11 @@
 package com.tencent.cubeli.flink
 //package com.tencent.cubeli.flink
 //package com.tencent.cubeli.flink1
+<<<<<<< HEAD
 //package com.tencent.cubeli.flink4
+=======
+//package com.tencent.cubeli.flink3
+>>>>>>> master
 
 /**
   * Created by waixingren on 16/12/2017.
