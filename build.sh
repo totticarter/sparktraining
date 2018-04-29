@@ -7,3 +7,4 @@ test for stash confict
 test for stash
 
 test for forward fast
+test for non-ff
