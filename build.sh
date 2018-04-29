@@ -5,3 +5,5 @@ test for patch for multi commit
 test for patch for multi commit
 test for stash confict
 test for stash
+
+test for forward fast
