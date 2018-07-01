@@ -30,7 +30,7 @@ object KmeasTest2 {
     val runTimes = 3
     var clusterIndex: Int = 0
     val clusters: KMeansModel = KMeans.train(parsedTrainingData, numClusters, numIterations)
-
+    clusters.save(sc, "file:///Users/liyong/software/sparktraining/data/mllib/kmeams")
     println("Cluster Number:" + clusters.clusterCenters.length)
 
     println("Cluster Centers Information Overview:")
