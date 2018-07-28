@@ -22,5 +22,9 @@ RDD的三个单词分析完了，球友们可能也有一个疑问，那就是�
 1.当然如果RDD被cache和做了checkpoint就，可以理解为spark把一个RDD的数据“存储了下来”，属于后续优化要讲解的内容。
 2.RDD在transform时，并非每处理一条就交给下一个RDD，而是使用小批量的方式传递，也属于优化的内容，后续讲解。
 
+## aaa
+### bbb
+#### ccc
+
 
   [1]: http://static.zybuluo.com/totticarter/uoy83xju7y0dz0rwuvvdxfbf/image_1cdj49iopuru1nsj1asg16ufkjm.png
