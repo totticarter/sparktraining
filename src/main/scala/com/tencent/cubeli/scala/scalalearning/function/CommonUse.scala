@@ -24,7 +24,6 @@ object CommonUse {
       }
     }
 
-
     val file = Source.fromFile(fileName)
 
     for(line <- file.getLines()){

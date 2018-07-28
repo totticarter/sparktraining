@@ -7,6 +7,8 @@ public class Main {
 
     public static void main(String[] args) throws  Exception{
 
+//        ConcurrentLinkedQueue<Integer> queue = new C
+
         PriorityTrueBlockingQueue queue = new PriorityTrueBlockingQueue();
         Thread.sleep(3000);
         System.out.println("producer start...");
