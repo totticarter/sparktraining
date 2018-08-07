@@ -42,22 +42,22 @@ public class PriorityQueueExample {
         for(int i=0;i<7;i++){
             e = new Integer(rand.nextInt(100));
             System.out.println("enqueue " + e);
-            integerPriorityQueue.add(e);
+            System.out.println(integerPriorityQueue.add(e) + " e " + e + " successed!");
         }
 
 
-        integerPriorityQueue.remove(e);
-        System.out.println("after remove "  + e + ", size is: " + integerPriorityQueue.size());
-
+//        integerPriorityQueue.remove(e);
+//        System.out.println("after remove "  + e + ", size is: " + integerPriorityQueue.size());
+//
         for(int i=0;i<7;i++){
             Integer in = integerPriorityQueue.poll();
             System.out.println("Processing Integer:"+in + ", queue size is: " + integerPriorityQueue.size());
         }
-
-        Queue<Customer> customerPriorityQueue = new PriorityQueue<>(7, idComparator);
-        addDataToQueue(customerPriorityQueue);
-
-        pollDataFromQueue(customerPriorityQueue);
+//
+//        Queue<Customer> customerPriorityQueue = new PriorityQueue<>(7, idComparator);
+//        addDataToQueue(customerPriorityQueue);
+//
+//        pollDataFromQueue(customerPriorityQueue);
 
     }
 
