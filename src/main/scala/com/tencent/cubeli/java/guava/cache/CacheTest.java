@@ -25,7 +25,14 @@ public class CacheTest {
                             }
                         });
 
-        graphs.
+        try{
+
+            graphs.put(new Key("one"), new Graph());
+            graphs.get(new Key("two"));
+            graphs.put(new Key("one"), new Graph());
+        }catch (Exception e){
+            e.printStackTrace();
+        }
     }
 
     public static Graph createExpensiveGraph(Key key){
