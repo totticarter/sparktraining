@@ -10,6 +10,13 @@ object MapT {
     ip2Hostname.foreach(println)
     ip2Hostname.foreach(a => println(a._1 + "          " + a._2))
 
+    val op1 = Some(Array(1,2,3))
+    val op2 = Some(Array(1,2,3, 4))
+//    val op = op1.map(_.length>4).getOrElse{
+//      op2.flatMap.
+//    }
+//    op
+
     //get
     println(ip2Hostname("192.168.11.11"))
 
