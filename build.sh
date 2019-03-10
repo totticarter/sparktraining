@@ -8,3 +8,6 @@ test for stash
 
 hello
 world
+
+hello
+
