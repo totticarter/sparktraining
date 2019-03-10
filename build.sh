@@ -7,4 +7,3 @@ test for stash confict
 test for stash
 
 hello
-world
