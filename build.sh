@@ -12,4 +12,3 @@ test for forward fast
 test for non-ff
 aaaa
 hello
-world
